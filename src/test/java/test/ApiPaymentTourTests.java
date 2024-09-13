@@ -16,12 +16,11 @@ public class ApiPaymentTourTests {
     @BeforeAll
     static void setupAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        cleanBase();
     }
 
     @AfterEach
     public void tearDown() {
-        cleanBase();
+        cleanDB();
     }
 
     @AfterAll
@@ -32,7 +31,7 @@ public class ApiPaymentTourTests {
     @Test
     @DisplayName("Отправка запроса на оплату тура по дебетовой карте со статусом “APPROVED”")
     public void successfulPayFromApprovedDebitCard() {
-        CardInfo card = getCardInfo(true);
+        CardInfo card = getApprovedCardInfo();
 
         String paymentStatusResponse = debitCard(card);
         String paymentStatusDB = getStatusPaymentEntity();
@@ -44,7 +43,7 @@ public class ApiPaymentTourTests {
     @Test
     @DisplayName("Отправка запроса на оплату тура по кредитной карте со статусом “APPROVED”")
     public void successfulPayFromApprovedCreditCard() {
-        CardInfo card = getCardInfo(true);
+        CardInfo card = getApprovedCardInfo();
 
         String paymentStatusResponse = creditCard(card);
         String paymentStatusDB = getStatusCreditEntity();
@@ -56,7 +55,7 @@ public class ApiPaymentTourTests {
     @Test
     @DisplayName("Отправка запроса на оплату тура по дебетовой карте со статусом “DECLINED”")
     public void failedPayFromApprovedDebitCard() {
-        CardInfo card = getCardInfo(false);
+        CardInfo card = getDeclinedCardInfo();
 
         String paymentStatusResponse = debitCard(card);
         String paymentStatusDB = getStatusPaymentEntity();
@@ -68,7 +67,7 @@ public class ApiPaymentTourTests {
     @Test
     @DisplayName("Отправка запроса на оплату тура по кредитной карте со статусом “DECLINED”")
     public void failedPayFromApprovedCreditCard() {
-        CardInfo card = getCardInfo(false);
+        CardInfo card = getDeclinedCardInfo();
 
         String paymentStatusResponse = creditCard(card);
         String paymentStatusDB = getStatusCreditEntity();

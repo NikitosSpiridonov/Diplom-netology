@@ -1,5 +1,5 @@
-FROM node:lts-alpine3.12
-WORKDIR /opt/app
+FROM node:18-alpine
+WORKDIR /home/node/app
 COPY . .
 RUN npm install
 CMD ["npm", "start"]

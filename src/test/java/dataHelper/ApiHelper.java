@@ -36,6 +36,7 @@ public class ApiHelper {
                 .when()
                 .post("/api/v1/credit")
                 .then()
+                .log().body()
                 .statusCode(200)
                 .extract().jsonPath().getString("status");
     }

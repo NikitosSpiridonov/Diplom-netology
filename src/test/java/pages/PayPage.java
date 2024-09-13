@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class PayPage {
 
     private final ElementsCollection allInputs = $$(".input__inner");
-    private final ElementsCollection allInputsSub = $$(".input__sub");
+    private final ElementsCollection allErrorUnderInputs = $$(".input__sub");
 
     private final SelenideElement inputCardNumber = allInputs.get(0);
     private final SelenideElement inputCardMouth = allInputs.get(1);
@@ -22,13 +22,13 @@ public class PayPage {
     private final SelenideElement inputCardOwner = allInputs.get(3);
     private final SelenideElement inputCardCvc = allInputs.get(4);
 
-    private final SelenideElement sendForm = $("form button");
+    private final SelenideElement formButton = $("form button");
 
     public PayPage(String text) {
         $(By.xpath("//h3[contains(text(), 'карт')]")).shouldBe(visible);
         allInputs.shouldHave(size(5));
         allInputs.get(0).$(".input__top").shouldBe(visible).shouldHave(text("Номер карты"));
-        sendForm.shouldBe(visible).shouldHave(text("Продолжить"));
+        formButton.shouldBe(visible).shouldHave(text("Продолжить"));
     }
 
     public void enterCardInfo(CardInfo cardInfo) {
@@ -39,16 +39,16 @@ public class PayPage {
         inputCardCvc.$(".input__control").setValue(cardInfo.getCvc());
     }
 
-    public void sendForm() {
-        sendForm.click();
+    public void clickSubmit() {
+        formButton.click();
     }
 
     public void getNoticeText(String msg) {
-        $(".notification__title").shouldBe(visible, Duration.ofSeconds(20)).shouldHave(text(msg));
+        $(".notification__title").shouldBe(visible, Duration.ofSeconds(25)).shouldHave(text(msg));
     }
 
-    public void getInputsSubSize(int size) {
-        allInputsSub.shouldHave(size(size));
+    public int getNumberOfErrorsUnderInputs() {
+        return allErrorUnderInputs.size();
     }
 
     public String getInputValue(int index) {

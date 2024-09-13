@@ -1,5 +1,6 @@
 package dataHelper;
 
+import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -12,38 +13,30 @@ public class SqlHelper {
     }
 
     private static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(System.getProperty("db.url"), "app", "pass");
+        return DriverManager.getConnection(System.getProperty("db.url"), System.getProperty("db.user"), System.getProperty("db.password"));
     }
 
-    static final String notFound = "Status not found";
-
-    public static void cleanBase() {
-        try (Connection connect = getConnection()) {
+    @SneakyThrows(SQLException.class)
+    public static void cleanDB() {
+        Connection connect = getConnection(); {
             QUERY_RUNNER.execute(connect, "DELETE FROM credit_request_entity");
             QUERY_RUNNER.execute(connect, "DELETE FROM payment_entity");
             QUERY_RUNNER.execute(connect, "DELETE FROM order_entity ");
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
+    @SneakyThrows(SQLException.class)
     public static String getStatusPaymentEntity() {
-        try (Connection connect = getConnection()) {
-            String queryStatus = "SELECT status FROM payment_entity";
-            return QUERY_RUNNER.query(connect, queryStatus, new ScalarHandler<>());
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return notFound;
-        }
+        Connection connect = getConnection();
+        String queryStatus = "SELECT status FROM payment_entity";
+        return QUERY_RUNNER.query(connect, queryStatus, new ScalarHandler<>());
     }
 
+    @SneakyThrows(SQLException.class)
     public static String getStatusCreditEntity() {
-        try (Connection connect = getConnection()) {
-            String queryStatus = "SELECT status FROM credit_request_entity";
-            return QUERY_RUNNER.query(connect, queryStatus, new ScalarHandler<>());
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return notFound;
-        }
+
+        Connection connect = getConnection();
+        String queryStatus = "SELECT status FROM credit_request_entity";
+        return QUERY_RUNNER.query(connect, queryStatus, new ScalarHandler<>());
     }
 }

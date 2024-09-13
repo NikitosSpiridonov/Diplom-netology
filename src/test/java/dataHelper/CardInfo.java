@@ -1,5 +1,8 @@
 package dataHelper;
 
+import lombok.Getter;
+
+@Getter
 public class CardInfo {
 
     String number;
@@ -14,25 +17,5 @@ public class CardInfo {
         this.year = year;
         this.owner = owner;
         this.cvc = cvc;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public String getMouth() {
-        return mouth;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public String getCvc() {
-        return cvc;
     }
 }

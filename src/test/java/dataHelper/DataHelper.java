@@ -59,10 +59,11 @@ public class DataHelper {
         return generateCardNumber(3);
     }
 
-    public static CardInfo getCardInfo(boolean status) {
-        if (status) {
-            return new CardInfo(approvedCard, generateCardMouth(), generateCardYear(validShift), generateCardOwner(), getCardCvc());
-        }
+    public static CardInfo getApprovedCardInfo() {
+        return new CardInfo(approvedCard, generateCardMouth(), generateCardYear(validShift), generateCardOwner(), getCardCvc());
+    }
+
+    public static CardInfo getDeclinedCardInfo() {
         return new CardInfo(declinedCard, generateCardMouth(), generateCardYear(validShift), generateCardOwner(), getCardCvc());
     }
 
