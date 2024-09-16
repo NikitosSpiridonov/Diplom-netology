@@ -103,7 +103,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Номер карты. Ввод 15 цифр (кредитная)")
-    void Number15Digits() {
+    void number15Digits() {
         CardInfo cardInfo = new CardInfo(generateCardNumber(countCardNumber - 1), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -117,7 +117,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Номер карты. Ввод 17 цифр (кредитная)")
-    void Number17Digits() {
+    void number17Digits() {
         CardInfo cardInfo = new CardInfo(generateCardNumber(countCardNumber + 1), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -131,7 +131,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Номер карты. Ввод букв (кредитная)")
-    void NumberLetters() {
+    void numberLetters() {
         CardInfo cardInfo = new CardInfo(generateCardOwner(), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -146,7 +146,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Номер карты. Ввод спецсимволов (кредитная)")
-    void NumberSymbols() {
+    void numberSymbols() {
         CardInfo cardInfo = new CardInfo(getSymbolStr(), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -161,7 +161,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Номер карты. Пустое поле при заполненных остальных полях (кредитная)")
-    void NumberEmpty() {
+    void numberEmpty() {
         CardInfo cardInfo = new CardInfo("", generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -178,7 +178,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Месяц. Ввод значения 00 (кредитная)")
-    void MouthField00() {
+    void mouthField00() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), "00", generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -193,7 +193,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Месяц. Ввод значения 13 (кредитная)")
-    void MouthField13() {
+    void mouthField13() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), String.valueOf(12 + 1), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -207,7 +207,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Месяц. Ввод значения с одной цифрой (кредитная)")
-    void MouthField1Digit() {
+    void mouthField1Digit() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardNumber(1), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -221,7 +221,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Месяц. Ввод букв (кредитная)")
-    void MouthLetters() {
+    void mouthLetters() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardOwner(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -236,7 +236,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Месяц. Ввод спецсимволов (кредитная)")
-    void MouthSymbols() {
+    void mouthSymbols() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), getSymbolStr(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -251,7 +251,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Месяц. Пустое поле при заполненных остальных полях (кредитная)")
-    void MouthEmpty() {
+    void mouthEmpty() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), "", generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -267,7 +267,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Год. Ввод значения предыдущего года (кредитная)")
-    void YearFieldLastYear() {
+    void yearFieldLastYear() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(-1), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -281,7 +281,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Год. Ввод года плюс 5 лет (кредитная)")
-    void YearFieldPlus5Year() {
+    void yearFieldPlus5Year() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(+5), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -296,7 +296,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Год. Ввод года плюс 6 лет (кредитная)")
-    void YearFieldPlus6Year() {
+    void yearFieldPlus6Year() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(+6), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -310,7 +310,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Год. Формат указания года 4-мя цифрами (кредитная)")
-    void YearField4Digits() {
+    void yearField4Digits() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), ("20" + generateCardYear()), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -325,7 +325,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Год. Ввод букв (кредитная)")
-    void YearLetters() {
+    void yearLetters() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardOwner(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -340,7 +340,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Год. Ввод спецсимволов (кредитная)")
-    void YearSymbols() {
+    void yearSymbols() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), getSymbolStr(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -355,7 +355,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Год. Пустое поле при заполненных остальных полях (кредитная)")
-    void YearEmpty() {
+    void yearEmpty() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), "", generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -371,7 +371,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Владелец. Ввод цифр (кредитная)")
-    void OwnerDigits() {
+    void ownerDigits() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardNumber(5) + " " + generateCardNumber(5), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -386,7 +386,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Владелец. Ввод кириллицы (кредитная)")
-    void OwnerCyrillic() {
+    void ownerCyrillic() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwnerInCyrillic(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -401,7 +401,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Владелец. Пробел в начале (кредитная)")
-    void OwnerSpaceInAtFirst() {
+    void ownerSpaceInAtFirst() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), " " + removeSpace(generateCardOwner()), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -416,7 +416,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Владелец. Пробел в конце (кредитная)")
-    void OwnerSpaceInAtTheEnd() {
+    void ownerSpaceInAtTheEnd() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), removeSpace(generateCardOwner()) + " ", getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -431,7 +431,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Владелец. Без пробела (кредитная)")
-    void OwnerSpaceLess() {
+    void ownerSpaceLess() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), removeSpace(generateCardOwner()), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -447,7 +447,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Владелец. Ввод спецсимволов (кредитная)")
-    void OwnerSymbols() {
+    void ownerSymbols() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), getSymbolStr(), getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -462,7 +462,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле Владелец. Пустое поле (кредитная)")
-    void OwnerEmpty() {
+    void ownerEmpty() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), "", getCardCvc());
 
         MainPage mainPage = new MainPage();
@@ -476,7 +476,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле CVC/CVV. Ввод 2-х цифр (кредитная)")
-    void Cvc2Digits() {
+    void cvc2Digits() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), generateCardNumber(2));
 
         MainPage mainPage = new MainPage();
@@ -490,7 +490,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле CVC/CVV. Ввод 4-х цифр (кредитная)")
-    void Cvc4Digits() {
+    void cvc4Digits() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), generateCardNumber(4));
 
         MainPage mainPage = new MainPage();
@@ -504,7 +504,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле CVC/CVV. Ввод букв (кредитная)")
-    void CvcLetters() {
+    void cvcLetters() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), generateCardFirstName());
 
         MainPage mainPage = new MainPage();
@@ -520,7 +520,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле CVC/CVV. Ввод спец. символов (кредитная)")
-    void CvcSymbols() {
+    void cvcSymbols() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), getSymbolStr());
 
         MainPage mainPage = new MainPage();
@@ -536,7 +536,7 @@ public class CreditPaymentTourTests {
 
     @Test
     @DisplayName("Валидация данных в поле CVC/CVV. Пустое поле (кредитная)")
-    void CvcEmpty() {
+    void cvcEmpty() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), "");
 
         MainPage mainPage = new MainPage();

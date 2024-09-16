@@ -18,7 +18,8 @@ public class SqlHelper {
 
     @SneakyThrows(SQLException.class)
     public static void cleanDB() {
-        Connection connect = getConnection(); {
+        Connection connect = getConnection();
+        {
             QUERY_RUNNER.execute(connect, "DELETE FROM credit_request_entity");
             QUERY_RUNNER.execute(connect, "DELETE FROM payment_entity");
             QUERY_RUNNER.execute(connect, "DELETE FROM order_entity ");

@@ -14,7 +14,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class PayPage {
 
     private final ElementsCollection allInputs = $$(".input__inner");
-    private final ElementsCollection allErrorUnderInputs = $$(".input__sub");
 
     private final SelenideElement inputCardNumber = allInputs.get(0);
     private final SelenideElement inputCardMouth = allInputs.get(1);
@@ -48,7 +47,7 @@ public class PayPage {
     }
 
     public int getNumberOfErrorsUnderInputs() {
-        return allErrorUnderInputs.size();
+        return $$(".input__sub").size();
     }
 
     public String getInputValue(int index) {
