@@ -51,7 +51,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = DataHelper.getApprovedCardInfo();
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
         payPage.getNoticeText(msgSuccess);
@@ -63,7 +63,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = DataHelper.getDeclinedCardInfo();
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
         payPage.getNoticeText(msgError);
@@ -76,7 +76,7 @@ public class DebitPaymentTourTests {
     void emptyForm() {
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.clickSubmit();
 
         Assertions.assertEquals(5, payPage.getNumberOfErrorsUnderInputs());
@@ -93,7 +93,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(generateCardNumber(16), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
         payPage.getNoticeText("Ошибка");
@@ -107,7 +107,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(generateCardNumber(countCardNumber - 1), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -121,7 +121,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(generateCardNumber(countCardNumber + 1), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -135,7 +135,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(generateCardOwner(), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -150,7 +150,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getSymbolStr(), generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -165,7 +165,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo("", generateCardMouth(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -182,7 +182,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), "00", generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -197,7 +197,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), String.valueOf(12 + 1), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -211,7 +211,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardNumber(1), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -225,7 +225,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardOwner(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -240,7 +240,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), getSymbolStr(), generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -255,7 +255,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), "", generateCardYear(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -271,7 +271,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(-1), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -285,7 +285,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(+5), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -300,7 +300,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(+6), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -314,7 +314,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), ("20" + generateCardYear()), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -329,7 +329,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardOwner(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -344,7 +344,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), getSymbolStr(), generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -359,7 +359,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), "", generateCardOwner(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -375,7 +375,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardNumber(5) + " " + generateCardNumber(5), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -390,7 +390,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwnerInCyrillic(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -405,7 +405,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), " " + removeSpace(generateCardOwner()), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
         payPage.getNoticeText(msgSuccess);
@@ -420,7 +420,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), removeSpace(generateCardOwner()) + " ", getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
         payPage.getNoticeText(msgSuccess);
@@ -435,7 +435,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), removeSpace(generateCardOwner()), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
         payPage.getNoticeText(msgSuccess);
@@ -451,7 +451,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), getSymbolStr(), getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -466,7 +466,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), "", getCardCvc());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -480,7 +480,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), generateCardNumber(2));
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -494,7 +494,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), generateCardNumber(4));
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -508,7 +508,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), generateCardFirstName());
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -523,8 +523,9 @@ public class DebitPaymentTourTests {
     void cvcSymbols() {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), getSymbolStr());
 
+
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
@@ -540,7 +541,7 @@ public class DebitPaymentTourTests {
         CardInfo cardInfo = new CardInfo(getApprovedCard(), generateCardMouth(), generateCardYear(), generateCardOwner(), "");
 
         MainPage mainPage = new MainPage();
-        PayPage payPage = mainPage.clickToPayCredit();
+        PayPage payPage = mainPage.clickToPayDebit();
         payPage.enterCardInfo(cardInfo);
         payPage.clickSubmit();
 
